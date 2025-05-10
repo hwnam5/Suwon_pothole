@@ -43,18 +43,6 @@ def data2pkl(file_name, data:dict):
             pothole_sign = True
             pothole_num += 1
             continue
-    #if not pothole_sign:
-        #data[wo_jpg] = {
-            #'file_name' : wo_jpg,
-            #'matrix' : image2matrix_np,
-            #'direction' : direction,
-            #'pothole' : 0
-        #}
-    #with open(f'pkl_files/data2pkl{pkl_num}.pkl', 'wb') as f:
-        #pkl.dump(data, f)
-    
-    #os.remove(file_name)
-    #os.remove(w_json)
 
 data = {}
 os.chdir('unzip/')
@@ -65,12 +53,6 @@ for i, file in enumerate(os.listdir()):
             pkl.dump(data, f)
     if file.endswith('.jpg'):
         data2pkl(file, data)
-    #if pothole_num % 5000 == 5000 - 1:
-        #print(f'{i} images are put into tkl file')
-        #with open(f'pkl_files/resize_224_{i//batch_size}.pkl', 'wb') as f:
-            #pkl.dump(data, f)
 
-#tkl 파일에 저장
-#os.chdir('..')
 with open('rgb_pothole.pkl', 'wb') as f:
     pkl.dump(data, f)
